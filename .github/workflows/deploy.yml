@@ -38,6 +38,14 @@ jobs:
           VITE_API_URL: ${{ secrets.VITE_API_URL || 'http://localhost:8081' }}
           GITHUB_PAGES: 'true'
           GITHUB_REPOSITORY: ${{ github.repository }}
+          CI: 'true'
+      
+      - name: Verify build output
+        run: |
+          echo "Checking dist folder contents..."
+          ls -la dist/
+          echo "Checking index.html..."
+          cat dist/index.html | head -20
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
