@@ -17,7 +17,13 @@ export default function Navbar() {
         {isLoggedIn && (
           <>
             <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><button onClick={() => { localStorage.clear(); window.location.href = "/"; }}>Logout</button></li>
+            <li><button onClick={() => { 
+              localStorage.clear(); 
+              const basePath = window.location.hostname.includes('github.io') 
+                ? `/${window.location.pathname.split('/').filter(Boolean)[0] || 'cicdendlabexam'}` 
+                : '';
+              window.location.href = `${basePath}/`;
+            }}>Logout</button></li>
           </>
         )}
       </ul>
