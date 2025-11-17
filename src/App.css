@@ -51,7 +51,7 @@
   transform: scale(1.05);
 }
 
-dashboard-grid {
+.dashboard-grid {
   height: 100vh;
   display: grid;
   grid-template-areas:
@@ -163,5 +163,7 @@ dashboard-grid {
   color: #caf0f8;
   transform: scale(1.1);
 }
+
 .header, .sidebar, .content {
   height: 100%;
+}
