@@ -44,8 +44,13 @@ jobs:
         run: |
           echo "Checking dist folder contents..."
           ls -la dist/
-          echo "Checking index.html..."
-          cat dist/index.html | head -20
+          echo "Checking index.html for base path..."
+          cat dist/index.html
+          echo ""
+          echo "Checking if CSS files exist..."
+          ls -la dist/assets/*.css 2>/dev/null || echo "No CSS files found in assets"
+          echo "Checking if JS files exist..."
+          ls -la dist/assets/*.js 2>/dev/null || echo "No JS files found in assets"
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
